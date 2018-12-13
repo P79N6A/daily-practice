@@ -1,0 +1,13 @@
+[package]
+name = "concurrency"
+version = "0.1.0"
+authors = ["Locke <moyerock@gmail.com>"]
+
+[dependencies]
+rand = "0.4.2"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

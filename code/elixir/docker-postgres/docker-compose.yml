@@ -1,0 +1,16 @@
+version: '2'
+services:
+    postgres:
+        container_name: postgres
+        image: registry.cn-hangzhou.aliyuncs.com/huiwanpt/postgres
+        build: ./postgres
+        restart: always
+        volumes:
+            - /data/pgdata:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_PASSWORD=postgres
+            - POSTGRES_USER=postgres
+        expose:
+            - "5432"
+        ports:
+            - "5432:5432"

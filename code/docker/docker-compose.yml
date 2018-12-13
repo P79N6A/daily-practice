@@ -1,0 +1,13 @@
+bricks_mysql:
+  image: registry.docker-cn.com/library/mysql
+  ports:
+  - "3306:3306"
+  environment:
+    MYSQL_DATABASE: bricks
+    MYSQL_ROOT_PASSWORD: system
+  container_name: bricks_mysql
+bricks_redis:
+  image: redis:alpine
+  ports:
+  - "6379:6379"
+  container_name: bricks_redis

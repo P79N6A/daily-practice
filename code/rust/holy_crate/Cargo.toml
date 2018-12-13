@@ -1,0 +1,15 @@
+[package]
+name = "holy_crate"
+version = "0.1.2"
+authors = ["Locke <moyerock@gmail.com>"]
+description = "学习crate用"
+license = "MIT/Apache-2.0"
+readme = "./README.md"
+
+[dependencies]
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

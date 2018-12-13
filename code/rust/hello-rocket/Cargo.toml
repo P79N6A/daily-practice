@@ -1,0 +1,17 @@
+[package]
+name = "hello_rocket"
+version = "0.1.0"
+authors = ["Locke <moyerock@gmail.com>"]
+
+[dependencies]
+rocket = "0.3.6"
+rocket_codegen = "0.3.6"
+rocket_contrib = "0.3.6"
+serde = "1.0.36"
+serde_derive = "1.0.36"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

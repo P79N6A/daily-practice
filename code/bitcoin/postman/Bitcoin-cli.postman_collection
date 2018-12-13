@@ -1,0 +1,93 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Bitcoin-cli",
+		"_postman_id": "fff26efd-7eae-3c6f-246d-2b3843b692ad",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getinfo",
+			"request": {
+				"url": "http://127.0.0.1:8332/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Yml0Y29pbnJwYzptb3llMDQwMQ==",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"jsonrpc\": \"2.0\", \"id\":\"curltest\", \"method\": \"getblockchaininfo\", \"params\": [] }"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "getnewaddress",
+			"request": {
+				"url": "http://127.0.0.1:8332/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Yml0Y29pbnJwYzptb3llMDQwMQ=="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"jsonrpc\": \"2.0\", \"id\":\"curltest\", \"method\": \"getnewaddress\", \"params\": [] }"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "dumpprivkey",
+			"request": {
+				"url": "http://127.0.0.1:8332/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic Yml0Y29pbnJwYzptb3llMDQwMQ=="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"jsonrpc\": \"2.0\", \"id\":\"curltest\", \"method\": \"dumpprivkey\", \"params\": [\"3AGc7Akw9cJCQmbpzDmxMdqecGKecGCAd8\"] }"
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "recommended fee",
+			"request": {
+				"url": "https://bitcoinfees.21.co/api/v1/fees/recommended",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

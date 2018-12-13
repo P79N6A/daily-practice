@@ -1,0 +1,21 @@
+version: '2'
+services:
+    postgres:
+        container_name: postgres
+        image: registry.cn-hangzhou.aliyuncs.com/moyerock/postgres
+        build: ./postgres
+        restart: always
+        volumes:
+            - /data/pgdata:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_PASSWORD=1234qwer!@#$$QWER
+            - POSTGRES_USER=postgres
+        ports:
+            - "5432:5432"
+    redis:
+        container_name: redis
+        image: registry.cn-hangzhou.aliyuncs.com/moyerock/redis
+        build: ./redis
+        restart: always
+        ports:
+            - "6379:6379"

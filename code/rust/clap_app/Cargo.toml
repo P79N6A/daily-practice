@@ -1,0 +1,14 @@
+[package]
+name = "clap_app"
+version = "0.1.0"
+authors = ["Locke <moyerock@gmail.com>"]
+
+[dependencies]
+clap = "2.31.2"
+tokio = "0.1"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

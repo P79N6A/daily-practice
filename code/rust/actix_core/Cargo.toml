@@ -1,0 +1,14 @@
+[package]
+name = "actix_core"
+version = "0.1.0"
+authors = ["Locke <moyerock@gmail.com>"]
+
+[dependencies]
+actix = "0.5.7"
+futures = "0.1.21"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

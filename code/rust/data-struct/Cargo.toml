@@ -1,0 +1,16 @@
+[package]
+name = "data_struct"
+version = "0.1.0"
+authors = ["Locke <moyerock@gmail.com>"]
+# build = "build.rs"
+
+[dependencies]
+regex = "1.0.0"
+reqwest = "0.8.5"
+rand = "0.4.2"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

@@ -1,0 +1,13 @@
+[package]
+name = "blocks"
+version = "0.1.0"
+authors = ["Locke <moyerock@gmail.com>"]
+
+[dependencies]
+bitcoin = "0.12"
+
+[profile.dev]
+opt-level = 0
+
+[profile.release]
+opt-level = 3

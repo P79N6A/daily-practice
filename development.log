@@ -1,0 +1,3 @@
+time="2018-08-19T23:17:42+08:00" level=info msg="language: zh"
+time="2018-08-19T23:17:42+08:00" level=info msg=RunCommand command="git status"
+time="2018-08-19T23:17:42+08:00" level=info msg="[git status]"

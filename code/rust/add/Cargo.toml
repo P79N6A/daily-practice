@@ -1,0 +1,7 @@
+[workspace]
+
+members = [
+  "addr",
+  "add-one",
+  "deref",
+]

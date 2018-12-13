@@ -1,0 +1,35 @@
+package main
+
+import (
+	"net/http"
+
+	"github.com/gobwas/ws"
+	"github.com/gobwas/ws/wsutil"
+)
+
+func main() {
+	http.ListenAndServe(":8000", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		conn, _, _, err := ws.UpgradeHTTP(r, w, nil)
+		if err != nil {
+			// handle error
+		}
+
+		go func() {
+			defer conn.Close()
+
+			for {
+				msg, op, err := wsutil.ReadClientData(conn)
+				if err != nil {
+					// handle error
+					// log.Fatal(msg)
+				}
+				// respondMessage := append([]byte("Hello, guy! I've received ur message: "), msg...)
+				err = wsutil.WriteServerMessage(conn, op, msg)
+				if err != nil {
+					// handle error
+					// log.Fatal(msg)
+				}
+			}
+		}()
+	}))
+}
