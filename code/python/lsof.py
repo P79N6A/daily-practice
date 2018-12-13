@@ -6,7 +6,7 @@ def port_occupied(port):
     is_occpuied = False
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     try:
-        s.bind(("127.0.0.1", int(port)))
+        s.bind(("0.0.0.0", int(port)))
     except socket.error as e:
         if e.errno == errno.EADDRINUSE:
             is_occpuied = True
