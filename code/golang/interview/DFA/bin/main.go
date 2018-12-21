@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/rockdragon/julia-programming/code/golang/interview/DFA"
+	"github.com/rockdragon/daily-practice/code/golang/interview/DFA"
 )
 
 func main() {
