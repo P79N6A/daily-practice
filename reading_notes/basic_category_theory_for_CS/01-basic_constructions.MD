@@ -209,3 +209,6 @@ Let C be a category with all binary products and let _A_ and _B_ be objects of C
     evalᴬᴮ o (curry(g) x idᴬ) = g
 ```
 If C has an exponential _Bᴬ_ for every pair of objects _A_ and _B_, then C is said to **have exponentiation**.
+
+### 1.10.2 Definition 
+A **cartesian closed category (CCC)** is a category with a terminal object, binary products, and exponentiation.
