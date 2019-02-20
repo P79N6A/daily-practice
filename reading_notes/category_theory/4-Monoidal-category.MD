@@ -7,6 +7,7 @@ A monoidal category consists of a category C equipped with a functor:
 ```
 and a distinguished object I, together with natural isomorphisms,
 ```
-αABC : A ⊗ (B ⊗ C) ⥲ (A ⊗ B) × C,
-λA : I ⊗ A ⥲ A,      ρA : A ⊗ I ⥲ A.
+    αABC : A ⊗ (B ⊗ C) ⥲ (A ⊗ B) × C,
+    
+    λA : I ⊗ A ⥲ A,      ρA : A ⊗ I ⥲ A.
 ```
