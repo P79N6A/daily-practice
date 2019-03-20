@@ -1,4 +1,5 @@
 def find_insertion(sub_seq, start, end, value):
+    print(f'end:{sub_seq[end]} current:{value}, sub_seq: {sub_seq[0:end]}')
     if sub_seq[end] < value:
         return end+1
     while start < end:
@@ -12,14 +13,16 @@ def find_insertion(sub_seq, start, end, value):
 def longest_sub_seq(seq):
     n = len(seq)
     sub_seq = [0] * n
-    max = 0
     sub_seq[1] = seq[0]
+    end = 0
     for i in range(0, n):
-        pos = find_insertion(sub_seq, 0, max, seq[i])
+        pos = find_insertion(sub_seq, 1, end, seq[i])
         sub_seq[pos] = seq[i]
-        if max < pos:
-            max = pos
-    return max
+        if end < pos:
+            end = pos
+
+    print(sub_seq[0:end])
+    return end
 
 
 if __name__ == '__main__':
