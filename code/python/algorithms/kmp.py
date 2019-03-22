@@ -42,8 +42,8 @@ def kmp(s: str, q: str):
             j += 1
             i += 1            
         if j == lq:
-            break
-    return i-j
+            return i-j
+    return -1
 
 
 if __name__ == "__main__":
