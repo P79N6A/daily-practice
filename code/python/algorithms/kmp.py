@@ -1,6 +1,3 @@
-from typing import List
-
-
 def common_length(s):
     l = len(s)
     prefix = s[0:l-1]
