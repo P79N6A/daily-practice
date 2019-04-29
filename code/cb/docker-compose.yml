@@ -1,0 +1,10 @@
+version: "2"
+services:
+  cbc-ubuntu:
+    image: leungwensen/cbc-ubuntu-64bit
+    command: bash -c 'alias cbc="cbc -Wa,--32 -Wl,-melf_i386"; cp /src/* /root/; cbc test.cb'
+    working_dir: /root
+    volumes:
+      - ./src:/src
+    environment:
+      PATH: /usr/local/cbc/bin:$PATH
