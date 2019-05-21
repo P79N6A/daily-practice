@@ -2,4 +2,4 @@
 
 gcc -c main.c
 gcc -c f.c
-gcc -v main.o f.o -o prog
+gcc -v -static main.o f.o -o prog
