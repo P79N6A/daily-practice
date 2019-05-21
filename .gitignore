@@ -74,4 +74,7 @@ site
 
 test
 prog
+prog-shared
 *.o
+*.so
+*.so.1
