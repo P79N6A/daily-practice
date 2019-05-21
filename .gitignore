@@ -72,9 +72,7 @@ site
 
 ~*.*
 
-test
-prog
-prog-shared
+*.s
 *.o
 *.so
 *.so.1

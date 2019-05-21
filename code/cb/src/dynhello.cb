@@ -1,0 +1,13 @@
+import dlfcn;
+
+typedef int (char *, ...)* printf_t;
+
+int
+main(int argc, char** argv)
+{
+	void* lib = dlopen("libc.so.6", RTLD_LAZY);
+	printf_t f = dlsym(lib, "printf");
+	f("Hello, World!\n");
+	dlclose(lib);
+	return 0;
+}
