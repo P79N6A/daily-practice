@@ -71,3 +71,7 @@ package-lock.json
 site
 
 ~*.*
+
+test
+prog
+*.o
