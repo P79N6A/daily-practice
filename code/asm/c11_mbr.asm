@@ -53,8 +53,8 @@ jmp dword 0x0008:flush             ;16位的描述符选择子：32位偏移
 [bits 32] 
 
 flush:
-mov cx,00000000000_10_000B         ;加载数据段选择子(0x10)
-mov ds,cx
+mov cx,00000000000_10_000B         ;加载数据段选择子(0x10)，描述符索引号是 2
+mov ds,cx                          ;线性基址 0x00000000,段界限是 0x07a00
 
 ;以下在屏幕上显示"Protect mode OK." 
 mov byte [0x00],'P'  
@@ -74,8 +74,8 @@ mov byte [0x1a],'O'
 mov byte [0x1c],'K'
 
 ;以下用简单的示例来帮助阐述32位保护模式下的堆栈操作 
-mov cx,00000000000_11_000B         ;加载堆栈段选择子
-mov ss,cx
+mov cx,00000000000_11_000B         ;加载堆栈段选择子，描述符索引号是 3
+mov ss,cx                          ;线性基址 0x000b8000,段界限是 0x0ffff
 mov esp,0x7c00
 
 mov ebp,esp                        ;保存堆栈指针 
