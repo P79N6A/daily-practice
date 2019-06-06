@@ -336,7 +336,7 @@ ram_alloc   dd  0x00100000    ;下次分配内存时的起始地址
 
 ;符号地址检索表
 salt:
-salt_1       b  '@PrintString'
+salt_1      db  '@PrintString'
             times 256-($-salt_1) db 0
             dd  put_string
             dw  sys_routine_seg_sel
