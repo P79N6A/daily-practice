@@ -13,7 +13,7 @@ mem_0_4_gb_seg_sel    equ  0x08    ;整个0-4GB内存的段的选择子
 
 ;-------------------------------------------------------------------------------
 ;以下是系统核心的头部，用于加载核心程序 
-core_length      dd core_end       ;核心程序总长度#00
+core_length      dd core_end       ;核心程序 偏移量#00
 
 sys_routine_seg  dd section.sys_routine.start
                                 ;系统公用例程段位置#04
