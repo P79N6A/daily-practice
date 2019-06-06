@@ -211,7 +211,7 @@ put_hex_dword:                              ;在当前光标处以十六进制�
 
     mov ebx,bin_hex                    ;指向核心数据段内的转换表
     mov ecx,8
-  .xlt:    
+.xlt:    
     rol edx,4
     mov eax,edx
     and eax,0x0000000f
