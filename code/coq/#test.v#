@@ -20,6 +20,9 @@ Definition orb (b1:bool) (b2:bool) : bool :=
   | false => b2
   end.
 
+Notation "x && y" := (andb x y).
+Notation "x || y" := (orb x y).
+
 
 Example test_orb1: (orb true false) = true.
 Proof. simpl. reflexivity. Qed.
@@ -30,8 +33,9 @@ Proof. simpl. reflexivity. Qed.
 Example test_orb4: (orb true true) = true.
 Proof. simpl. reflexivity. Qed.
 
-Notation "x && y" := (andb x y).
-Notation "x || y" := (orb x y).
+Example test_orb5: false || false || true = true.
+Proof. simpl. reflexivity. Qed.
+
 
 
 
