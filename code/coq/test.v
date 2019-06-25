@@ -42,3 +42,17 @@ Example test_nandb3: (nandb false true) = true.
 Proof. simpl. reflexivity. Qed.
 Example test_nandb4: (nandb true true) = false.
 Proof. simpl. reflexivity. Qed.
+
+Check true.
+Check (negb true).
+Check negb.
+
+Inductive rgb : Type :=
+  | red
+  | green
+  | blue.
+
+Inductive color : Type :=
+  | black
+  | white
+  | primary (p : rgb).
