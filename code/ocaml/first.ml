@@ -5,4 +5,4 @@ let rec iseven a =
 
 
 let a = 12;;
-Printf.printf "iseven(%d) == %b\n" a (iseven 12) ;;
+Printf.printf "iseven(%d) == %b\n" a (iseven a) ;;
