@@ -1,7 +1,12 @@
 Mysql: {
   Address: "127.0.0.1",
-  Port: 3306,
-  DB: "workflow",
+  Port: 3309,
+  DB: "go_mysql",
   User: "root",
   Password: "dev",
+}
+
+Redis: {
+  Address: "127.0.0.1",
+  Port: 6380,
 }

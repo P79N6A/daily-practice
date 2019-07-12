@@ -19,6 +19,11 @@ type Config struct {
 		User     string `yaml:"User"`
 		Password string `yaml:"Password"`
 	} `yaml:"Mysql"`
+
+	Redis struct {
+		Address string `yaml:"Address"`
+		Port    string `yaml:"Port"`
+	} `yaml:"Redis"`
 }
 
 func GetConfig() Config {

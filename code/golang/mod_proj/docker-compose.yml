@@ -1,0 +1,22 @@
+version: "2"
+services:
+  mod-proj-mysql:
+    image: mysql:5.7
+    ports:
+    - "3309:3306"
+    environment:
+      MYSQL_DATABASE: go_mysql
+      MYSQL_ROOT_PASSWORD: dev
+    logging:
+      options:
+        max-file: "5"
+        max-size: "1m"
+  mod-proj-redis:
+    image: redis:alpine
+    ports:
+      - "6380:6379"
+    container_name: go_redis
+    logging:
+      options:
+        max-file: "5"
+        max-size: "1m"
