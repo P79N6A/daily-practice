@@ -18,7 +18,7 @@ type Config struct {
 		DB       string `yaml:"DB"`
 		User     string `yaml:"User"`
 		Password string `yaml:"Password"`
-	}
+	} `yaml:"Mysql"`
 }
 
 func GetConfig() Config {
@@ -27,21 +27,19 @@ func GetConfig() Config {
 		log.Fatal(err)
 	}
 	cfgPath := path.Join(cwd, "conf/config.yml")
-	fmt.Println(cfgPath)
+	fmt.Println("config was located:", cfgPath)
 	return loadConfig(cfgPath)
 }
 
-func loadConfig(cfgPath string) Config {
-	c := Config{}
-
+func loadConfig(cfgPath string) (c Config) {
 	bytes, err := ioutil.ReadFile(cfgPath)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	err = yaml.Unmarshal(bytes, &c)
+	err = yaml.UnmarshalStrict(bytes, &c)
 	if err != nil {
 		log.Fatal(err)
 	}
-	return c
+	return
 }

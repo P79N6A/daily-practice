@@ -11,7 +11,7 @@ import (
 
 func main() {
 	config := utils.GetConfig()
-	fmt.Println(config.Mysql.Address)
+	fmt.Println(config)
 
 	e := echo.New()
 	e.GET("/", api.HelloWorld)
