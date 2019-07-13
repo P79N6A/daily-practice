@@ -14,7 +14,7 @@ import (
 type Config struct {
 	Mysql struct {
 		Address  string `yaml:"Address"`
-		Port     string `yaml:"Port"`
+		Port     int    `yaml:"Port"`
 		DB       string `yaml:"DB"`
 		User     string `yaml:"User"`
 		Password string `yaml:"Password"`
