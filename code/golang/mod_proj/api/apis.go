@@ -1,11 +1,10 @@
 package apis
 
 import (
-	"net/http"
-
-	"github.com/labstack/echo"
+	"github.com/gin-gonic/gin"
 )
 
-func HelloWorld(c echo.Context) error {
-	return c.JSON(http.StatusOK, "hello world.")
+func AuthRequired(c *gin.Context) {
+
 }
+
