@@ -3,6 +3,7 @@ package database
 import (
 	"fmt"
 	"log"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jinzhu/gorm"
@@ -20,4 +21,12 @@ func GetConnection() *gorm.DB {
 		log.Fatal(err)
 	}
 	return db
+}
+
+func SetConnectionPool(maxIdleConns int, maxOpenConns int) {
+	log.Printf("SetMaxIdleConns: %d, SetMaxOpenConns: %d", maxIdleConns, maxOpenConns)
+	conn := GetConnection()
+	conn.DB().SetMaxIdleConns(maxIdleConns)
+	conn.DB().SetMaxOpenConns(maxOpenConns)
+	conn.DB().SetConnMaxLifetime(time.Hour)
 }

@@ -13,11 +13,13 @@ import (
 
 type Config struct {
 	Mysql struct {
-		Address  string `yaml:"Address"`
-		Port     int    `yaml:"Port"`
-		DB       string `yaml:"DB"`
-		User     string `yaml:"User"`
-		Password string `yaml:"Password"`
+		Address      string `yaml:"Address"`
+		Port         int    `yaml:"Port"`
+		DB           string `yaml:"DB"`
+		User         string `yaml:"User"`
+		Password     string `yaml:"Password"`
+		MaxIdleConns int    `yaml:"MaxIdleConns"`
+		MaxOpenConns int    `yaml:"MaxOpenConns"`
 	} `yaml:"Mysql"`
 
 	Redis struct {

@@ -13,10 +13,10 @@ func LoadApiRouters(prefix string, router *gin.Engine) {
 		"dev": "password",
 	}))
 
-	authorized.POST("/db/init", InitDB)
+	authorized.POST("/db/migrate", migrateDB)
 }
 
-func InitDB(c *gin.Context) {
+func migrateDB(c *gin.Context) {
 	conn := database.GetConnection()
 	if errors := conn.AutoMigrate(&database.User{}, &database.Product{}).GetErrors(); errors != nil && len(errors) > 0 {
 		c.JSON(http.StatusInternalServerError, gin.H{

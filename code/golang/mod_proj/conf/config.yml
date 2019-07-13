@@ -4,6 +4,8 @@ Mysql: {
   DB: "go_mysql",
   User: "root",
   Password: "dev",
+  MaxIdleConns: 10,
+  MaxOpenConns: 100,
 }
 
 Redis: {
