@@ -21,8 +21,7 @@ func Serve(port int) {
 		})
 	})
 
-	v1 := router.Group("/api/v1")
-	v1.Use()
+	LoadApiRouters("/api/v1", router)
 
 	server := &http.Server{
 		Addr:    fmt.Sprintf(":%d", port),
