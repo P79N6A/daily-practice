@@ -73,3 +73,29 @@ func UpdateUserWithProfile(json utils.UpdateUserSpec) (bool, string) {
 
 	return true, ""
 }
+
+func DeleteUserWithProfile(name string) (bool, string) {
+	user := User{}
+	conn := GetConnection()
+	conn.Where("name = ?", name).First(&user)
+
+	errors := conn.GetErrors()
+	if errors != nil && len(errors) > 0 {
+		return false, fmt.Sprintf("%v", errors)
+	}
+	if user.ID == 0 { // not found
+		return false, "User not exists"
+	}
+
+	user.Status = utils.Deleted
+	conn.Save(&user)
+
+	conn.Delete(&user)
+
+	errors = conn.GetErrors()
+	if errors != nil && len(errors) > 0 {
+		return false, fmt.Sprintf("%v", errors)
+	}
+
+	return true, ""
+}

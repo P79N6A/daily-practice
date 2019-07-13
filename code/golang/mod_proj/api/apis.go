@@ -18,10 +18,11 @@ func LoadApiRouters(prefix string, router *gin.Engine) {
 	authorized.POST("/users", createUser)
 	authorized.GET("/users/:username", retrieveUser)
 	authorized.PUT("/users/", updateUser)
+	authorized.DELETE("/users/:username", deleteUser)
 }
 
-func updateUser(c *gin.Context) {
-	var json utils.UpdateUserSpec
+func createUser(c *gin.Context) {
+	var json utils.CreateUserSpec
 	if err := c.ShouldBindJSON(&json); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
@@ -29,7 +30,7 @@ func updateUser(c *gin.Context) {
 		return
 	}
 
-	success, errors := database.UpdateUserWithProfile(json)
+	success, errors := database.CreateUserWithProfile(json)
 	if !success {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": errors,
@@ -57,8 +58,8 @@ func retrieveUser(c *gin.Context) {
 	})
 }
 
-func createUser(c *gin.Context) {
-	var json utils.CreateUserSpec
+func updateUser(c *gin.Context) {
+	var json utils.UpdateUserSpec
 	if err := c.ShouldBindJSON(&json); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
@@ -66,7 +67,23 @@ func createUser(c *gin.Context) {
 		return
 	}
 
-	success, errors := database.CreateUserWithProfile(json)
+	success, errors := database.UpdateUserWithProfile(json)
+	if !success {
+		c.JSON(http.StatusBadRequest, gin.H{
+			"error": errors,
+		})
+		return
+	}
+
+	c.JSON(200, gin.H{
+		"message": "DONE",
+	})
+}
+
+func deleteUser(c *gin.Context) {
+	username := c.Param("username")
+
+	success, errors := database.DeleteUserWithProfile(username)
 	if !success {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": errors,
