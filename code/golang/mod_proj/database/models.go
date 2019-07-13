@@ -7,15 +7,23 @@ import (
 
 type User struct {
 	gorm.Model
-	Name string
+	Name     string
 	Password string
-	Status utils.UserStatus
+	Status   utils.UserStatus
+	Profile  Profile `gorm:"foreignkey:UserID"`
+}
+
+type Profile struct {
+	gorm.Model
+	UserID      uint
+	Description string
+	Avatar      string
 }
 
 type Product struct {
 	gorm.Model
-	Name string
-	Price uint32
+	Name        string
+	Price       uint32
 	Description string
-	PicUrl string
+	PicUrl      string
 }

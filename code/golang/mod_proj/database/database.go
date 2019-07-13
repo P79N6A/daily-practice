@@ -30,3 +30,12 @@ func SetConnectionPool(maxIdleConns int, maxOpenConns int) {
 	conn.DB().SetMaxOpenConns(maxOpenConns)
 	conn.DB().SetConnMaxLifetime(time.Hour)
 }
+
+func Migrates() (bool, string) {
+	allModels := []interface{}{&User{}, &Product{}, &Profile{}}
+	errors := GetConnection().AutoMigrate(allModels...).GetErrors()
+	if errors != nil && len(errors) > 0 {
+		return false, fmt.Sprintf("%v", errors)
+	}
+	return true, ""
+}
