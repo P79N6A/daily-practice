@@ -19,6 +19,18 @@ func LoadApiRouters(prefix string, router *gin.Engine) {
 	authorized.GET("/users/:username", retrieveUser)
 	authorized.PUT("/users/", updateUser)
 	authorized.DELETE("/users/:username", deleteUser)
+	authorized.GET("/time", getTime)
+}
+
+func getTime(c *gin.Context) {
+	req := make(chan string, 1)
+	utils.GetTime(req)
+
+	now := <-req
+
+	c.JSON(200, gin.H{
+		"time": now,
+	})
 }
 
 func createUser(c *gin.Context) {
