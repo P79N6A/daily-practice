@@ -23,8 +23,8 @@ func LoadApiRouters(prefix string, router *gin.Engine) {
 }
 
 func getTime(c *gin.Context) {
-	req := make(chan string, 1)
-	utils.GetTime(req)
+	req := make(chan string)
+	go utils.GetTime(req)
 
 	now := <-req
 
