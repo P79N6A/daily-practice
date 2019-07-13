@@ -29,8 +29,10 @@ func CreateUserWithProfile(json utils.CreateUserSpec) (bool, string) {
 
 func RetrieveUserByName(name string) (bool, *User) {
 	user := User{}
+	profile := Profile{}
 	conn := GetConnection()
 	conn.Where("name = ?", name).First(&user)
+	conn.Model(&user).Related(&profile)
 
 	errors := conn.GetErrors()
 	if errors != nil && len(errors) > 0 {
@@ -39,6 +41,8 @@ func RetrieveUserByName(name string) (bool, *User) {
 	if user.ID == 0 { // not found
 		return false, nil
 	}
+
+	user.Profile = profile
 	return true, &user
 }
 
