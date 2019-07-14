@@ -23,6 +23,8 @@ func Serve(port int) {
 
 	LoadApiRouters("/api/v1", router)
 
+	log.Printf("[API] API SITE is listening on port: %d\n", port)
+
 	server := &http.Server{
 		Addr:    fmt.Sprintf("0.0.0.0:%d", port),
 		Handler: router,

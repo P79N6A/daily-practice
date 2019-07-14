@@ -1,6 +1,9 @@
 module github.com/rockdragon/daily-practice/code/golang/mod_proj
 
 require (
+	code.byted.org/gopkg/thrift v1.4.2
+	git.apache.org/thrift.git v0.12.0
+	github.com/apache/thrift v0.12.0
 	github.com/gin-gonic/gin v1.4.0
 	github.com/go-sql-driver/mysql v1.4.1
 	github.com/golang/protobuf v1.3.1

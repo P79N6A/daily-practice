@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	"github.com/rockdragon/daily-practice/code/golang/mod_proj/services/gen"
+	"github.com/rockdragon/daily-practice/code/golang/mod_proj/services/grpc_gen"
 
 	"google.golang.org/grpc"
 )
@@ -24,5 +24,5 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	log.Println(resp)
+	log.Printf("[GRPC_CLIENT]:\n %v\n", resp)
 }

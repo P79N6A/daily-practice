@@ -5,11 +5,11 @@ import (
 	"log"
 	"net"
 
-	"github.com/rockdragon/daily-practice/code/golang/mod_proj/services/gen"
+	"github.com/rockdragon/daily-practice/code/golang/mod_proj/services/grpc_gen"
 	"google.golang.org/grpc"
 )
 
-func Serve(port int) {
+func ServeGRPC(port int) {
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)

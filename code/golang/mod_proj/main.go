@@ -18,7 +18,11 @@ func main() {
 	database.SetConnectionPool(config.Mysql.MaxIdleConns, config.Mysql.MaxOpenConns)
 
 	go func() {
-		services.Serve(1551)
+		services.ServeGRPC(1551)
+	}()
+
+	go func() {
+		services.ServeThrift(1661, false)
 	}()
 
 	api.Serve(1323)
