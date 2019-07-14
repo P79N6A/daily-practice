@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 
+	"github.com/rockdragon/daily-practice/code/golang/mod_proj/services"
+
 	"github.com/rockdragon/daily-practice/code/golang/mod_proj/database"
 	"github.com/rockdragon/daily-practice/code/golang/mod_proj/utils"
 
@@ -14,6 +16,10 @@ func main() {
 	fmt.Println(config)
 
 	database.SetConnectionPool(config.Mysql.MaxIdleConns, config.Mysql.MaxOpenConns)
+
+	go func() {
+		services.Serve(1551)
+	}()
 
 	api.Serve(1323)
 }

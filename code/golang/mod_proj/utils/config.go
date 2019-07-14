@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"fmt"
 	"log"
 	"os"
 	"path"
@@ -34,7 +33,6 @@ func GetConfig() Config {
 		log.Fatal(err)
 	}
 	cfgPath := path.Join(cwd, "conf/config.yml")
-	fmt.Println("config was located:", cfgPath)
 	return loadConfig(cfgPath)
 }
 

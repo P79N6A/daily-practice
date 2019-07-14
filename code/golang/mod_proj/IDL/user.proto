@@ -1,0 +1,24 @@
+syntax = "proto3";
+package core_service;
+option go_package = "services";
+
+message UserRequest {
+    string name = 1;
+}
+
+message UserResponse {
+    message Profile {
+        uint32 ID = 1;
+        string Description = 2;
+        string Avatar = 3;
+    }
+    uint32 ID = 1;
+    string Name = 2;
+    string Password = 3;
+    int32  Status = 4;
+    Profile profile = 5;
+}
+
+service UserService {
+    rpc GetUser(UserRequest) returns (UserResponse) {}
+}
